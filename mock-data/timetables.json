@@ -1,0 +1,24 @@
+[
+  {
+    "companyName": "407 พัฒนา",
+    "logo": "img/407.png",
+    "description": "กรุงเทพฯ - ขอนแก่น - อุดร"
+  },
+  {
+    "companyName": "BH ระยอง",
+    "logo": "img/bh.png"
+  },
+  {
+    "companyName": "กาญจนบุรี เอ็กซ์เพรส",
+    "logo": "img/kanchanaburi.png",
+    "description": "หมอชิต - กาญจนบุรี"
+  },
+  {
+    "companyName": "จารุวรรณทัวร์",
+    "logo": "",
+    "description": "ไม่มีโลโก้ก็แสดงได้"
+  },
+  {
+    "companyName": "999 ธันวาทรานสปอร์ต"
+  }
+]
