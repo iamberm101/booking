@@ -31,44 +31,151 @@
         <!-- Template Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
     </head>
-  
+    <style>
+        /* ✅ แก้ไขระยะห่างด้านบนของ container ที่มี mt-5 */
+        body .container.pt-4.pb-0.pb-md-4.mt-5 {
+          margin-top: 1.5rem !important;
+        }
+      
+        /* ✅ จำกัดความกว้างของ layout */
+        .container,
+        .container-fluid:not(.nav-bar) {
+          max-width: 1140px;
+          margin-left: auto;
+          margin-right: auto;
+          padding-left: 15px;
+          padding-right: 15px;
+        }
+      
+        /* ✅ ระยะห่างหลัง navbar */
+        .nav-bar + * {
+          margin-top: 1rem !important;
+        }
+    
+        /* ✅ พื้นหลังบาง section */
+        .bg-light, .bg-info, .bg-thr-light {
+          background-color: #ffe6e9 !important;
+        }
+      
+        /* ✅ กล่อง tab & accordion */
+        .nav-tabs .nav-link.active,
+        .accordion .card-header,
+        .tab-content {
+          background-color: #fff0f0 !important;
+        }
+      
+        /* ✅ จุดสถานะวงกลม */
+        .timeline-step,
+        .dot,
+        .dot-circle,
+        .rounded-circle {
+          background-color: #ee0019 !important;
+          border-color: #ee0019 !important;
+        }
+      
+        /* ✅ ลิงก์ทั่วไป */
+        a, a:visited, a:hover {
+          color: #ee0019 !important;
+        }
+      
+        /* ✅ Navbar (พื้นหลังโปร่ง + fade-in 0.8s) */
+        nav.navbar,
+        .nav-bar {
+          background-color: rgba(238, 0, 25, 0.9) !important; /* แดงโปร่ง */
+          background-image: none !important;
+          border-bottom: 1px solid #c60015;
+          backdrop-filter: none !important;
+          filter: none !important;
+          box-shadow: none !important;
+          border-top: none !important;
+          z-index: 1030;
+          padding-top: 12px;
+          padding-bottom: 12px;
+          opacity: 0;
+          animation: fadeInNavbar 0.8s ease forwards; /* ช้าลง */
+        }
+      
+        @keyframes fadeInNavbar {
+          from { opacity: 0; transform: translateY(-10px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      
+        .navbar {
+          padding-top: 0.5rem;
+          padding-bottom: 0.5rem;
+          min-height: 72px;
+          align-items: center;
+        }
+      
+        .navbar-brand h1,
+        .navbar-brand,
+        .navbar-brand span,
+        .navbar-brand strong {
+          font-size: 2rem;
+          margin: 0;
+          color: #ffffff !important;
+          font-weight: 700;
+          display: flex;
+          align-items: center;
+        }
+      
+        .navbar-brand i {
+          font-size: 1.8rem;
+          margin-right: 0.5rem;
+          color: #ffffff !important;
+        }
+      
+        .navbar-nav .nav-link {
+          font-size: 1.05rem;
+          padding: 0.5rem 1rem;
+          font-weight: 500;
+          color: #ffffff !important;
+          text-decoration: none;
+          transition: all 0.2s ease;
+        }
+      
+        /* ✅ เพิ่มขีดเส้นใต้ตอน hover */
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+          color: #ffe6e9 !important;
+          text-decoration: underline;
+          text-underline-offset: 4px;
+        }
+      
+     
+      
+        @media (max-width: 991.98px) {
+          .navbar-nav .nav-item {
+            margin: 0.5rem 0;
+          }
+        }
+      </style>
 </head>
 <body>
      <!-- Navbar & Hero Start -->
-        <div class="container-fluid nav-bar sticky-top px-0 px-lg-4 py-2 py-lg-0">
-            <div class="container">
-                <nav class="navbar navbar-expand-lg navbar-light">
-                    <a href="" class="navbar-brand p-0">
-                        <h1 class="display-6 text-primary"><i class="fas fa-car-alt me-3"></i></i>Cental</h1>
-                        <!-- <img src="img/logo.png" alt="Logo"> -->
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                        <span class="fa fa-bars"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarCollapse">
-                        <div class="navbar-nav mx-auto py-0">
-                            <a href="index.html" class="nav-item nav-link active">Home</a>
-                            <a href="timetables.html" class="nav-item nav-link">About</a>
-                            <a href="service.html" class="nav-item nav-link">Service</a>
-                            <a href="blog.html" class="nav-item nav-link">Blog</a>
-                            
-                            <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                                <div class="dropdown-menu m-0">
-                                    <a href="feature.html" class="dropdown-item">Our Feature</a>
-                                    <a href="cars.html" class="dropdown-item">Our Cars</a>
-                                    <a href="team.html" class="dropdown-item">Our Team</a>
-                                    <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                                    <a href="404.html" class="dropdown-item">404 Page</a>
-                                </div>
-                            </div>
-                            <a href="contact.html" class="nav-item nav-link">Contact</a>
-                        </div>
-                        <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Get Started</a>
-                    </div>
-                </nav>
+     <div class="container-fluid nav-bar sticky-top px-0 px-lg-4 py-2 py-lg-0">
+        <div class="container">
+          <nav class="navbar navbar-expand-lg navbar-light">
+            <a href="" class="navbar-brand p-0">
+              <h1 class="display-6 text-primary"><i class="fas fa-car-alt me-3"></i>จองตั๋ว</h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+              <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+              <div class="navbar-nav mx-auto py-0">
+                <a href="index.html" class="nav-item nav-link active">หน้าหลัก</a>
+                <a href="timetables.html" class="nav-item nav-link">ตารางเดินรถ</a>
+                <a href="service.html" class="nav-item nav-link">จัดการการจอง</a>
+                <a href="blog.html" class="nav-item nav-link">ประวัติการจอง</a>
+                <a href="blog.html" class="nav-item nav-link">เคาน์เตอร์ออกตั๋ว</a>
+                <a href="blog.html" class="nav-item nav-link">บทความ</a>
+                <a href="blog.html" class="nav-item nav-link">ติดต่อเรา</a>
+              </div>
             </div>
+          </nav>
         </div>
+      </div>
         <!-- Navbar & Hero End -->
 
   <div class="timetable-page">
