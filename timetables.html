@@ -77,26 +77,6 @@
       <!-- card ถูก inject ด้วย JS -->
     </div>
   </div>
-
-  <script>
-    const API_URL = "https://mocki.io/v1/fe6582d6-74f0-4e16-8622-2b788b99b6ee";
-    const imageURL = "https://gds.busx.com/apps/resources/assets/img/vehicle/bus.png";
-
-    fetch(API_URL)
-      .then((response) => response.json())
-      .then((data) => {
-        const container = document.getElementById("timetable-list");
-        data.forEach(item => {
-          const card = document.createElement("div");
-          card.className = "timetable-card";
-          card.innerHTML = `
-            <img src="${imageURL}" alt="bus icon" class="timetable-icon" />
-            <div class="timetable-name">${item.name}</div>
-          `;
-          container.appendChild(card);
-        });
-      })
-      .catch((err) => console.error("Fetch error:", err));
-  </script>
+  <script src="carrier-api.js"></script>
 </body>
 </html>
