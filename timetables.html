@@ -1,189 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Timetables</title>
-   <head>
-        <meta charset="utf-8">
-        <title>Cental - Car Rent Website Template</title>
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta content="" name="keywords">
-        <meta content="" name="description">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timetables</title>
+    <head>
+      <meta charset="utf-8" />
+      <title>Cental - Car Rent Website Template</title>
+      <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+      <meta content="" name="keywords" />
+      <meta content="" name="description" />
 
-        <!-- Google Web Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"> 
+      <!-- Google Web Fonts -->
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet"
+      />
 
-        <!-- Icon Font Stylesheet -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+      <!-- Icon Font Stylesheet -->
+      <link
+        rel="stylesheet"
+        href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      />
+      <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+        rel="stylesheet"
+      />
 
-        <!-- Libraries Stylesheet -->
-        <link href="lib/animate/animate.min.css" rel="stylesheet">
-        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+      <!-- Libraries Stylesheet -->
+      <link href="lib/animate/animate.min.css" rel="stylesheet" />
+      <link
+        href="lib/owlcarousel/assets/owl.carousel.min.css"
+        rel="stylesheet"
+      />
 
+      <!-- Customized Bootstrap Stylesheet -->
+      <link href="css/bootstrap.min.css" rel="stylesheet" />
 
-        <!-- Customized Bootstrap Stylesheet -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-
-        <!-- Template Stylesheet -->
-        <link href="css/style.css" rel="stylesheet">
+      <!-- Template Stylesheet -->
+      <link href="css/style.css" rel="stylesheet" />
     </head>
     <style>
-        /* ✅ แก้ไขระยะห่างด้านบนของ container ที่มี mt-5 */
-        body .container.pt-4.pb-0.pb-md-4.mt-5 {
-          margin-top: 1.5rem !important;
-        }
-      
-        /* ✅ จำกัดความกว้างของ layout */
-        .container,
-        .container-fluid:not(.nav-bar) {
-          max-width: 1140px;
-          margin-left: auto;
-          margin-right: auto;
-          padding-left: 15px;
-          padding-right: 15px;
-        }
-      
-        /* ✅ ระยะห่างหลัง navbar */
-        .nav-bar + * {
-          margin-top: 1rem !important;
-        }
-    
-        /* ✅ พื้นหลังบาง section */
-        .bg-light, .bg-info, .bg-thr-light {
-          background-color: #ffe6e9 !important;
-        }
-      
-        /* ✅ กล่อง tab & accordion */
-        .nav-tabs .nav-link.active,
-        .accordion .card-header,
-        .tab-content {
-          background-color: #fff0f0 !important;
-        }
-      
-        /* ✅ จุดสถานะวงกลม */
-        .timeline-step,
-        .dot,
-        .dot-circle,
-        .rounded-circle {
-          background-color: #ee0019 !important;
-          border-color: #ee0019 !important;
-        }
-      
-        /* ✅ ลิงก์ทั่วไป */
-        a, a:visited, a:hover {
-          color: #ee0019 !important;
-        }
-      
-        /* ✅ Navbar (พื้นหลังโปร่ง + fade-in 0.8s) */
-        nav.navbar,
-        .nav-bar {
-          background-color: rgba(238, 0, 25, 0.9) !important; /* แดงโปร่ง */
-          background-image: none !important;
-          border-bottom: 1px solid #c60015;
-          backdrop-filter: none !important;
-          filter: none !important;
-          box-shadow: none !important;
-          border-top: none !important;
-          z-index: 1030;
-          padding-top: 12px;
-          padding-bottom: 12px;
-          opacity: 0;
-          animation: fadeInNavbar 0.8s ease forwards; /* ช้าลง */
-        }
-      
-        @keyframes fadeInNavbar {
-          from { opacity: 0; transform: translateY(-10px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-      
-        .navbar {
-          padding-top: 0.5rem;
-          padding-bottom: 0.5rem;
-          min-height: 72px;
-          align-items: center;
-        }
-      
-        .navbar-brand h1,
-        .navbar-brand,
-        .navbar-brand span,
-        .navbar-brand strong {
-          font-size: 2rem;
-          margin: 0;
-          color: #ffffff !important;
-          font-weight: 700;
-          display: flex;
-          align-items: center;
-        }
-      
-        .navbar-brand i {
-          font-size: 1.8rem;
-          margin-right: 0.5rem;
-          color: #ffffff !important;
-        }
-      
-        .navbar-nav .nav-link {
-          font-size: 1.05rem;
-          padding: 0.5rem 1rem;
-          font-weight: 500;
-          color: #ffffff !important;
-          text-decoration: none;
-          transition: all 0.2s ease;
-        }
-      
-        /* ✅ เพิ่มขีดเส้นใต้ตอน hover */
-        .navbar-nav .nav-link:hover,
-        .navbar-nav .nav-link.active {
-          color: #ffe6e9 !important;
-          text-decoration: underline;
-          text-underline-offset: 4px;
-        }
-      
-     
-      
-        @media (max-width: 991.98px) {
-          .navbar-nav .nav-item {
-            margin: 0.5rem 0;
-          }
-        }
-      </style>
-</head>
-<body>
-     <!-- Navbar & Hero Start -->
-     <div class="container-fluid nav-bar sticky-top px-0 px-lg-4 py-2 py-lg-0">
-        <div class="container">
-          <nav class="navbar navbar-expand-lg navbar-light">
-            <a href="" class="navbar-brand p-0">
-              <h1 class="display-6 text-primary"><i class="fas fa-car-alt me-3"></i>จองตั๋ว</h1>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-              <span class="fa fa-bars"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-              <div class="navbar-nav mx-auto py-0">
-                <a href="index.html" class="nav-item nav-link active">หน้าหลัก</a>
-                <a href="timetables.html" class="nav-item nav-link">ตารางเดินรถ</a>
-                <a href="service.html" class="nav-item nav-link">จัดการการจอง</a>
-                <a href="blog.html" class="nav-item nav-link">ประวัติการจอง</a>
-                <a href="blog.html" class="nav-item nav-link">เคาน์เตอร์ออกตั๋ว</a>
-                <a href="blog.html" class="nav-item nav-link">บทความ</a>
-                <a href="blog.html" class="nav-item nav-link">ติดต่อเรา</a>
-              </div>
-            </div>
-          </nav>
-        </div>
-      </div>
-        <!-- Navbar & Hero End -->
+      /* ✅ แก้ไขระยะห่างด้านบนของ container ที่มี mt-5 */
+      body .container.pt-4.pb-0.pb-md-4.mt-5 {
+        margin-top: 1.5rem !important;
+      }
 
-  <div class="timetable-page">
-    <h1 class="timetable-title">🚌 Timetables</h1>
-    <div class="timetable-grid" id="timetable-list">
-      <!-- card ถูก inject ด้วย JS -->
+      /* ✅ จำกัดความกว้างของ layout */
+      .container,
+      .container-fluid:not(.nav-bar) {
+        max-width: 1140px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+
+      /* ✅ ระยะห่างหลัง navbar */
+      .nav-bar + * {
+        margin-top: 1rem !important;
+      }
+
+      /* ✅ พื้นหลังบาง section */
+      .bg-light,
+      .bg-info,
+      .bg-thr-light {
+        background-color: #ffe6e9 !important;
+      }
+
+      /* ✅ กล่อง tab & accordion */
+      .nav-tabs .nav-link.active,
+      .accordion .card-header,
+      .tab-content {
+        background-color: #fff0f0 !important;
+      }
+
+      /* ✅ จุดสถานะวงกลม */
+      .timeline-step,
+      .dot,
+      .dot-circle,
+      .rounded-circle {
+        background-color: #ee0019 !important;
+        border-color: #ee0019 !important;
+      }
+
+      /* ✅ ลิงก์ทั่วไป */
+      a,
+      a:visited,
+      a:hover {
+        color: #ee0019 !important;
+      }
+
+      /* ✅ Navbar (พื้นหลังโปร่ง + fade-in 0.8s) */
+      nav.navbar,
+      .nav-bar {
+        background-color: rgba(238, 0, 25, 0.9) !important; /* แดงโปร่ง */
+        background-image: none !important;
+        border-bottom: 1px solid #c60015;
+        backdrop-filter: none !important;
+        filter: none !important;
+        box-shadow: none !important;
+        border-top: none !important;
+        z-index: 1030;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        opacity: 0;
+        animation: fadeInNavbar 0.8s ease forwards; /* ช้าลง */
+      }
+
+      @keyframes fadeInNavbar {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .navbar {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        min-height: 72px;
+        align-items: center;
+      }
+
+      .navbar-brand h1,
+      .navbar-brand,
+      .navbar-brand span,
+      .navbar-brand strong {
+        font-size: 2rem;
+        margin: 0;
+        color: #ffffff !important;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+      }
+
+      .navbar-brand i {
+        font-size: 1.8rem;
+        margin-right: 0.5rem;
+        color: #ffffff !important;
+      }
+
+      .navbar-nav .nav-link {
+        font-size: 1.05rem;
+        padding: 0.5rem 1rem;
+        font-weight: 500;
+        color: #ffffff !important;
+        text-decoration: none;
+        transition: all 0.2s ease;
+      }
+
+      /* ✅ เพิ่มขีดเส้นใต้ตอน hover */
+      .navbar-nav .nav-link:hover,
+      .navbar-nav .nav-link.active {
+        color: #ffe6e9 !important;
+        text-decoration: underline;
+        text-underline-offset: 4px;
+      }
+
+      @media (max-width: 991.98px) {
+        .navbar-nav .nav-item {
+          margin: 0.5rem 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar & Hero Start -->
+    <div class="container-fluid nav-bar sticky-top px-0 px-lg-4 py-2 py-lg-0">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <a href="" class="navbar-brand p-0">
+            <h1 class="display-6 text-primary">
+              <i class="fas fa-car-alt me-3"></i>จองตั๋ว
+            </h1>
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarCollapse"
+          >
+            <span class="fa fa-bars"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav mx-auto py-0">
+              <a href="index.html" class="nav-item nav-link active">หน้าหลัก</a>
+              <a href="timetables.html" class="nav-item nav-link"
+                >ตารางเดินรถ</a
+              >
+              <a href="/api/clone-booking-status" class="nav-item nav-link"
+                >จัดการการจอง</a
+              >
+              <a href="blog.html" class="nav-item nav-link">ประวัติการจอง</a>
+              <a href="/api/clone-counters" class="nav-item nav-link"
+                >เคาน์เตอร์ออกตั๋ว</a
+              >
+              <a href="/api/clone-news" class="nav-item nav-link">บทความ</a>
+              <a href="/api/clone-contact" class="nav-item nav-link"
+                >ติดต่อเรา</a
+              >
+            </div>
+          </div>
+        </nav>
+      </div>
     </div>
-  </div>
-  <script src="carrier-api.js"></script>
-</body>
+    <!-- Navbar & Hero End -->
+
+    <div class="timetable-page">
+      <h1 class="timetable-title">🚌 Timetables</h1>
+      <div class="timetable-grid" id="timetable-list">
+        <!-- card ถูก inject ด้วย JS -->
+      </div>
+    </div>
+    <script src="carrier-api.js"></script>
+  </body>
 </html>
