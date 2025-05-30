@@ -5,8 +5,6 @@ const fetch = require("node-fetch"); // v2 เท่านั้นสำหร�
 const cors = require("cors");
 const path = require("path");
 const puppeteer = require("puppeteer-core"); // ⬅️ เพิ่มด้านบนของไฟล์
-const os = require("os");
-const { execSync } = require("child_process");
 
 const app = express();
 
@@ -14,78 +12,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.static(__dirname));
-
-// Debug: หา Chrome ที่มีใน system
-const findChromeOnLinux = () => {
-  try {
-    // ลองหา Chrome ด้วย which command
-    const paths = [
-      "chromium",
-      "chromium-browser",
-      "google-chrome",
-      "google-chrome-stable",
-    ];
-
-    for (const cmd of paths) {
-      try {
-        const result = execSync(`which ${cmd}`, { encoding: "utf8" }).trim();
-        console.log(`Found Chrome at: ${result}`);
-        return result;
-      } catch (e) {
-        console.log(`${cmd} not found`);
-      }
-    }
-  } catch (error) {
-    console.log("Error finding Chrome:", error.message);
-  }
-
-  return null;
-};
-
-// Function หา Chrome path ตาม OS
-const getChromePath = () => {
-  const platform = os.platform();
-
-  if (platform === "win32") {
-    // Windows paths
-    const windowsPaths = [
-      "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
-      "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
-      path.join(
-        os.homedir(),
-        "AppData\\Local\\Google\\Chrome\\Application\\chrome.exe"
-      ),
-    ];
-
-    for (const chromePath of windowsPaths) {
-      try {
-        require("fs").accessSync(chromePath);
-        return chromePath;
-      } catch (e) {
-        continue;
-      }
-    }
-  } else {
-    // Linux paths (สำหรับ Render)
-    const linuxPaths = [
-      "/usr/bin/chromium-browser",
-      "/usr/bin/chromium",
-      "/usr/bin/google-chrome",
-      "/usr/bin/google-chrome-stable",
-    ];
-
-    for (const chromePath of linuxPaths) {
-      try {
-        require("fs").accessSync(chromePath);
-        return chromePath;
-      } catch (e) {
-        continue;
-      }
-    }
-  }
-
-  return null;
-};
 
 // Serve index.html ที่ root
 app.get("/", (req, res) => {
@@ -166,13 +92,16 @@ app.get("/api/scrape-booking", async (req, res) => {
   try {
     const browser = await puppeteer.launch({
       executablePath:
-        process.env.PUPPETEER_EXECUTABLE_PATH || "/usr/bin/chromium-browser",
+        process.env.PUPPETEER_EXECUTABLE_PATH ||
+        "/usr/bin/google-chrome-stable",
       args: [
         "--no-sandbox",
         "--disable-setuid-sandbox",
         "--disable-dev-shm-usage",
         "--disable-gpu",
         "--no-first-run",
+        "--no-zygote",
+        "--disable-extensions",
       ],
       headless: true,
     });
@@ -205,15 +134,18 @@ app.get("/api/clone-thairoute", async (req, res) => {
   )}`;
 
   try {
-    const browser = await puppeteer.launch({
+     const browser = await puppeteer.launch({
       executablePath:
-        process.env.PUPPETEER_EXECUTABLE_PATH || "/usr/bin/chromium-browser",
+        process.env.PUPPETEER_EXECUTABLE_PATH ||
+        "/usr/bin/google-chrome-stable",
       args: [
         "--no-sandbox",
         "--disable-setuid-sandbox",
         "--disable-dev-shm-usage",
         "--disable-gpu",
         "--no-first-run",
+        "--no-zygote",
+        "--disable-extensions",
       ],
       headless: true,
     });
@@ -705,13 +637,16 @@ app.get("/api/clone-booking-status", async (req, res) => {
   try {
     const browser = await puppeteer.launch({
       executablePath:
-        process.env.PUPPETEER_EXECUTABLE_PATH || "/usr/bin/chromium-browser",
+        process.env.PUPPETEER_EXECUTABLE_PATH ||
+        "/usr/bin/google-chrome-stable",
       args: [
         "--no-sandbox",
         "--disable-setuid-sandbox",
         "--disable-dev-shm-usage",
         "--disable-gpu",
         "--no-first-run",
+        "--no-zygote",
+        "--disable-extensions",
       ],
       headless: true,
     });
@@ -853,13 +788,16 @@ app.get("/api/clone-news", async (req, res) => {
   try {
     const browser = await puppeteer.launch({
       executablePath:
-        process.env.PUPPETEER_EXECUTABLE_PATH || "/usr/bin/chromium-browser",
+        process.env.PUPPETEER_EXECUTABLE_PATH ||
+        "/usr/bin/google-chrome-stable",
       args: [
         "--no-sandbox",
         "--disable-setuid-sandbox",
         "--disable-dev-shm-usage",
         "--disable-gpu",
         "--no-first-run",
+        "--no-zygote",
+        "--disable-extensions",
       ],
       headless: true,
     });
@@ -1173,13 +1111,16 @@ app.get("/api/clone-contact", async (req, res) => {
   try {
     const browser = await puppeteer.launch({
       executablePath:
-        process.env.PUPPETEER_EXECUTABLE_PATH || "/usr/bin/chromium-browser",
+        process.env.PUPPETEER_EXECUTABLE_PATH ||
+        "/usr/bin/google-chrome-stable",
       args: [
         "--no-sandbox",
         "--disable-setuid-sandbox",
         "--disable-dev-shm-usage",
         "--disable-gpu",
         "--no-first-run",
+        "--no-zygote",
+        "--disable-extensions",
       ],
       headless: true,
     });
