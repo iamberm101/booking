@@ -463,17 +463,15 @@ app.get("/api/clone-counters", async (req, res) => {
     const browser = await puppeteer.launch({
       executablePath:
         process.env.PUPPETEER_EXECUTABLE_PATH ||
-        findChromeOnLinux() ||
-        "/usr/bin/chromium",
+        "/usr/bin/google-chrome-stable",
       args: [
         "--no-sandbox",
         "--disable-setuid-sandbox",
         "--disable-dev-shm-usage",
         "--disable-gpu",
+        "--no-first-run",
+        "--no-zygote",
         "--disable-extensions",
-        "--disable-background-timer-throttling",
-        "--disable-backgrounding-occluded-windows",
-        "--disable-renderer-backgrounding",
       ],
       headless: true,
     });
