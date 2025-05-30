@@ -84,7 +84,7 @@ async function ensureValidAccessToken() {
 async function loadCarriers() {
   await ensureValidAccessToken();
   const token = localStorage.getItem('busx_access_token');
-  console.log(token)
+ 
 
   const response = await fetch(LIST_CARRIERS_URL, {
     method: 'POST',

@@ -600,141 +600,25 @@ app.get("/api/clone-booking-status", async (req, res) => {
 
     let html = await page.content();
 
+    console.log("html:", html);
+
     // ✅ เพิ่ม <base> + font/icon/bootstrap/css ของคุณ
     html = html.replace(
       "<head>",
       `<head>
   <base href="https://thairoute.com/">
-   <link rel="stylesheet" href="https://cdn.busx.com/gds/resources/assets/css/busx-search-form.min.css">
-  <script type="module" src="https://cdn.busx.com/gds/resources/assets/js/busx-search-form.min.js"></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>`
-    );
 
-    html = html.replace(
-      "</head>",
-      `
-<style>
-  /* ✅ แก้ไขระยะห่างด้านบนของ container ที่มี mt-5 */
-  body .container.pt-4.pb-0.pb-md-4.mt-5 {
-    margin-top: 1.5rem !important;
-  }
+  <!-- ✅ CSS -->
+  <link rel="stylesheet" href="https://cdn.busx.com/gds/resources/assets/css/busx-search-form.min.css">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/formvalidation@1.9.0/dist/css/formValidation.min.css" />
 
-  /* ✅ จำกัดความกว้างของ layout */
-  .container,
-  .container-fluid:not(.nav-bar) {
-    max-width: 1140px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-
-  /* ✅ ระยะห่างหลัง navbar */
-  .nav-bar + * {
-    margin-top: 1rem !important;
-  }
-
-  /* ✅ กล่อง tab & accordion */
-  .nav-tabs .nav-link.active,
-  .accordion .card-header,
-  .tab-content {
-    background-color: #fff0f0 !important;
-  }
-
-  /* ✅ จุดสถานะวงกลม */
-  .timeline-step,
-  .dot,
-  .dot-circle,
-  .rounded-circle {
-    background-color: #ee0019 !important;
-    border-color: #ee0019 !important;
-  }
-
-  /* ✅ ลิงก์ทั่วไป */
-  a, a:visited, a:hover {
-    color: #ee0019 !important;
-  }
-
-  /* ✅ Navbar (พื้นหลังโปร่ง + fade-in 0.8s) */
-  nav.navbar,
-  .nav-bar {
-    background-color: rgba(238, 0, 25, 0.9) !important; /* แดงโปร่ง */
-    background-image: none !important;
-    border-bottom: 1px solid #c60015;
-    backdrop-filter: none !important;
-    filter: none !important;
-    box-shadow: none !important;
-    border-top: none !important;
-    z-index: 1030;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    opacity: 0;
-    animation: fadeInNavbar 0.8s ease forwards; /* ช้าลง */
-  }
-
-  @keyframes fadeInNavbar {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .navbar {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    min-height: 72px;
-    align-items: center;
-  }
-
-  .navbar-brand h1,
-  .navbar-brand,
-  .navbar-brand span,
-  .navbar-brand strong {
-    font-size: 2rem;
-    margin: 0;
-    color: #ffffff !important;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-  }
-
-  .navbar-brand i {
-    font-size: 1.8rem;
-    margin-right: 0.5rem;
-    color: #ffffff !important;
-  }
-
-  .navbar-nav .nav-link {
-    font-size: 1.05rem;
-    padding: 0.5rem 1rem;
-    font-weight: 500;
-    color: #ffffff !important;
-    text-decoration: none;
-    transition: all 0.2s ease;
-  }
-
-  /* ✅ เพิ่มขีดเส้นใต้ตอน hover */
-  .navbar-nav .nav-link:hover,
-  .navbar-nav .nav-link.active {
-    color: #ffe6e9 !important;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-
-  .mt-fixed {
-    margin-top: 0rem !important;
-  }
-
-  @media (max-width: 991.98px) {
-    .navbar-nav .nav-item {
-      margin: 0.5rem 0;
-    }
-  }
-</style>
-
-</style>
-
-
-</head>`
+  <!-- ✅ JS -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/formvalidation@1.9.0/dist/js/FormValidation.full.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/formvalidation@1.9.0/dist/js/plugins/Bootstrap4.min.js"></script>
+  <script type="module" src="https://cdn.busx.com/gds/resources/assets/js/busx-search-form.min.js"></script>`
     );
 
     // ✅ ลบ navbar และ footer เดิม
