@@ -136,7 +136,7 @@ app.get("/api/clone-thairoute", async (req, res) => {
     html = html.replace(
       "<head>",
       `<head>
-  <base href="https://thairoute.com/">
+  <base href="/">
   <link rel="stylesheet" href="https://cdn.busx.com/gds/resources/assets/css/busx-search-form.min.css">
   <script type="module" src="https://cdn.busx.com/gds/resources/assets/js/busx-search-form.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -323,7 +323,7 @@ app.get("/api/clone-thairoute", async (req, res) => {
       <div class="container-fluid nav-bar sticky-top px-0 px-lg-4 py-2 py-lg-0">
         <div class="container">
           <nav class="navbar navbar-expand-lg navbar-light">
-            <a href="" class="navbar-brand p-0">
+            <a href="index.html class="navbar-brand p-0">
               <h1 class="display-6 text-primary"><i class="fas fa-car-alt me-3"></i>จองตั๋ว</h1>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -332,12 +332,18 @@ app.get("/api/clone-thairoute", async (req, res) => {
             <div class="collapse navbar-collapse" id="navbarCollapse">
               <div class="navbar-nav mx-auto py-0">
                 <a href="index.html" class="nav-item nav-link active">หน้าหลัก</a>
-                <a href="timetables.html" class="nav-item nav-link">ตารางเดินรถ</a>
-                <a href="service.html" class="nav-item nav-link">จัดการการจอง</a>
-                <a href="blog.html" class="nav-item nav-link">ประวัติการจอง</a>
-                <a href="blog.html" class="nav-item nav-link">เคาน์เตอร์ออกตั๋ว</a>
-                <a href="blog.html" class="nav-item nav-link">บทความ</a>
-                <a href="blog.html" class="nav-item nav-link">ติดต่อเรา</a>
+            <a href="timetables.html" class="nav-item nav-link">ตารางเดินรถ</a>
+            <a href="bookingstatus.html" class="nav-item nav-link"
+              >จัดการการจอง</a
+            >
+            <a href="bookingstatus.html" class="nav-item nav-link"
+              >ประวัติการจอง</a
+            >
+            <a href="/api/clone-counters" class="nav-item nav-link"
+              >เคาน์เตอร์ออกตั๋ว</a
+            >
+            <a href="/api/clone-news" class="nav-item nav-link">บทความ</a>
+            <a href="/api/clone-contact" class="nav-item nav-link">ติดต่อเรา</a>
               </div>
             </div>
           </nav>
@@ -378,7 +384,7 @@ app.get("/api/clone-counters", async (req, res) => {
     html = html.replace(
       "<head>",
       `<head>
-    <base href="https://thairoute.com/">
+    <base href="/">
   <link rel="stylesheet" href="https://cdn.busx.com/gds/resources/assets/css/busx-search-form.min.css">
   <script type="module" src="https://cdn.busx.com/gds/resources/assets/js/busx-search-form.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -548,7 +554,7 @@ app.get("/api/clone-counters", async (req, res) => {
       <div class="container-fluid nav-bar sticky-top px-0 px-lg-4 py-2 py-lg-0">
         <div class="container">
           <nav class="navbar navbar-expand-lg navbar-light">
-            <a href="" class="navbar-brand p-0">
+            <a href="index.html" class="navbar-brand p-0">
               <h1 class="display-6 text-primary"><i class="fas fa-car-alt me-3"></i>จองตั๋ว</h1>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -556,13 +562,19 @@ app.get("/api/clone-counters", async (req, res) => {
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
               <div class="navbar-nav mx-auto py-0">
-                <a href="index.html" class="nav-item nav-link active">หน้าหลัก</a>
-                            <a href="timetables.html" class="nav-item nav-link">ตารางเดินรถ</a>
-                            <a href="/api/clone-booking-status" class="nav-item nav-link">จัดการการจอง</a>
-                            <a href="blog.html" class="nav-item nav-link">ประวัติการจอง</a>
-                            <a href="/api/clone-counters" class="nav-item nav-link">เคาน์เตอร์ออกตั๋ว</a>
-                            <a href="/api/clone-news" class="nav-item nav-link">บทความ</a>
-                             <a href="/api/clone-contact" class="nav-item nav-link">ติดต่อเรา</a>
+             <a href="index.html" class="nav-item nav-link active">หน้าหลัก</a>
+            <a href="timetables.html" class="nav-item nav-link">ตารางเดินรถ</a>
+            <a href="bookingstatus.html" class="nav-item nav-link"
+              >จัดการการจอง</a
+            >
+            <a href="bookingstatus.html" class="nav-item nav-link"
+              >ประวัติการจอง</a
+            >
+            <a href="/api/clone-counters" class="nav-item nav-link"
+              >เคาน์เตอร์ออกตั๋ว</a
+            >
+            <a href="/api/clone-news" class="nav-item nav-link">บทความ</a>
+            <a href="/api/clone-contact" class="nav-item nav-link">ติดต่อเรา</a>
               </div>
             </div>
           </nav>
@@ -606,7 +618,7 @@ app.get("/api/clone-booking-status", async (req, res) => {
     html = html.replace(
       "<head>",
       `<head>
-  <base href="https://thairoute.com/">
+  <base href="/">
 
   <!-- ✅ CSS -->
   <link rel="stylesheet" href="https://cdn.busx.com/gds/resources/assets/css/busx-search-form.min.css">
@@ -630,7 +642,7 @@ app.get("/api/clone-booking-status", async (req, res) => {
 <div class="container-fluid nav-bar sticky-top px-0 px-lg-4 py-2 py-lg-0">
   <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light">
-      <a href="/" class="navbar-brand p-0">
+      <a href="index.html" class="navbar-brand p-0">
         <h1 class="display-6 text-primary"><i class="fas fa-car-alt me-3"></i>จองตั๋ว</h1>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -638,13 +650,19 @@ app.get("/api/clone-booking-status", async (req, res) => {
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav mx-auto py-0">
-          <a href="/" class="nav-item nav-link">หน้าหลัก</a>
-          <a href="/timetables.html" class="nav-item nav-link">ตารางเดินรถ</a>
-          <a href="/service.html" class="nav-item nav-link">จัดการการจอง</a>
-          <a href="/blog.html" class="nav-item nav-link">ประวัติการจอง</a>
-          <a href="/blog.html" class="nav-item nav-link">เคาน์เตอร์ออกตั๋ว</a>
-          <a href="/blog.html" class="nav-item nav-link">บทความ</a>
-          <a href="/blog.html" class="nav-item nav-link">ติดต่อเรา</a>
+         <a href="index.html" class="nav-item nav-link active">หน้าหลัก</a>
+            <a href="timetables.html" class="nav-item nav-link">ตารางเดินรถ</a>
+            <a href="bookingstatus.html" class="nav-item nav-link"
+              >จัดการการจอง</a
+            >
+            <a href="bookingstatus.html" class="nav-item nav-link"
+              >ประวัติการจอง</a
+            >
+            <a href="/api/clone-counters" class="nav-item nav-link"
+              >เคาน์เตอร์ออกตั๋ว</a
+            >
+            <a href="/api/clone-news" class="nav-item nav-link">บทความ</a>
+            <a href="/api/clone-contact" class="nav-item nav-link">ติดต่อเรา</a>
         </div>
       </div>
     </nav>
@@ -738,7 +756,7 @@ app.get("/api/clone-news", async (req, res) => {
     html = html.replace(
       "<head>",
       `<head>
-  <base href="https://thairoute.com/">
+  <base href="/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
@@ -874,7 +892,7 @@ app.get("/api/clone-news", async (req, res) => {
 <div class="container-fluid nav-bar sticky-top px-0 px-lg-4 py-2 py-lg-0">
   <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light">
-      <a href="/" class="navbar-brand p-0">
+      <a href="index.html" class="navbar-brand p-0">
         <h1 class="display-6 text-primary"><i class="fas fa-car-alt me-3"></i>จองตั๋ว</h1>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -882,13 +900,19 @@ app.get("/api/clone-news", async (req, res) => {
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav mx-auto py-0">
-          <a href="/" class="nav-item nav-link">หน้าหลัก</a>
-          <a href="/timetables.html" class="nav-item nav-link">ตารางเดินรถ</a>
-          <a href="/service.html" class="nav-item nav-link">จัดการการจอง</a>
-          <a href="/blog.html" class="nav-item nav-link">ประวัติการจอง</a>
-          <a href="/blog.html" class="nav-item nav-link">เคาน์เตอร์ออกตั๋ว</a>
-          <a href="/blog.html" class="nav-item nav-link">บทความ</a>
-          <a href="/blog.html" class="nav-item nav-link">ติดต่อเรา</a>
+         <a href="index.html" class="nav-item nav-link active">หน้าหลัก</a>
+            <a href="timetables.html" class="nav-item nav-link">ตารางเดินรถ</a>
+            <a href="bookingstatus.html" class="nav-item nav-link"
+              >จัดการการจอง</a
+            >
+            <a href="bookingstatus.html" class="nav-item nav-link"
+              >ประวัติการจอง</a
+            >
+            <a href="/api/clone-counters" class="nav-item nav-link"
+              >เคาน์เตอร์ออกตั๋ว</a
+            >
+            <a href="/api/clone-news" class="nav-item nav-link">บทความ</a>
+            <a href="/api/clone-contact" class="nav-item nav-link">ติดต่อเรา</a>
         </div>
       </div>
     </nav>
@@ -1044,7 +1068,7 @@ app.get("/api/clone-contact", async (req, res) => {
     html = html.replace(
       "<head>",
       `<head>
-<base href="https://thairoute.com/">
+<base href="/">
 <title>ติดต่อเรา - จองตั๋วรถทัวร์ทั่วไทย</title>
 <meta name="description" content="ติดต่อบริษัท ไทยรูท ดอทคอม สำหรับข้อมูลเพิ่มเติมเกี่ยวกับการจองตั๋วรถโดยสาร แนะนำ บริการลูกค้า ฯลฯ">
 <meta property="og:title" content="ติดต่อเรา - ไทยรูท">
@@ -1186,7 +1210,7 @@ app.get("/api/clone-contact", async (req, res) => {
 <div class="container-fluid nav-bar sticky-top px-0 px-lg-4 py-2 py-lg-0">
   <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light">
-      <a href="/" class="navbar-brand p-0">
+      <a href="index.html" class="navbar-brand p-0">
         <h1 class="display-6 text-primary"><i class="fas fa-car-alt me-3"></i>จองตั๋ว</h1>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -1194,13 +1218,19 @@ app.get("/api/clone-contact", async (req, res) => {
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav mx-auto py-0">
-          <a href="/" class="nav-item nav-link">หน้าหลัก</a>
-          <a href="/timetables.html" class="nav-item nav-link">ตารางเดินรถ</a>
-          <a href="/service.html" class="nav-item nav-link">จัดการการจอง</a>
-          <a href="/blog.html" class="nav-item nav-link">ประวัติการจอง</a>
-          <a href="/blog.html" class="nav-item nav-link">เคาน์เตอร์ออกตั๋ว</a>
-          <a href="/blog.html" class="nav-item nav-link">บทความ</a>
-          <a href="/blog.html" class="nav-item nav-link active">ติดต่อเรา</a>
+         <a href="index.html" class="nav-item nav-link active">หน้าหลัก</a>
+            <a href="timetables.html" class="nav-item nav-link">ตารางเดินรถ</a>
+            <a href="bookingstatus.html" class="nav-item nav-link"
+              >จัดการการจอง</a
+            >
+            <a href="bookingstatus.html" class="nav-item nav-link"
+              >ประวัติการจอง</a
+            >
+            <a href="/api/clone-counters" class="nav-item nav-link"
+              >เคาน์เตอร์ออกตั๋ว</a
+            >
+            <a href="/api/clone-news" class="nav-item nav-link">บทความ</a>
+            <a href="/api/clone-contact" class="nav-item nav-link">ติดต่อเรา</a>
         </div>
       </div>
     </nav>
