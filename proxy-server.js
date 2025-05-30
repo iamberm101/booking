@@ -5,6 +5,7 @@ const fetch = require("node-fetch"); // v2 เท่านั้นสำหร�
 const cors = require("cors");
 const path = require("path");
 const puppeteer = require("puppeteer-core"); // ⬅️ เพิ่มด้านบนของไฟล์
+const os = require("os");
 
 const app = express();
 
@@ -12,6 +13,51 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.static(__dirname));
+
+// Function หา Chrome path ตาม OS
+const getChromePath = () => {
+  const platform = os.platform();
+
+  if (platform === "win32") {
+    // Windows paths
+    const windowsPaths = [
+      "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
+      path.join(
+        os.homedir(),
+        "AppData\\Local\\Google\\Chrome\\Application\\chrome.exe"
+      ),
+    ];
+
+    for (const chromePath of windowsPaths) {
+      try {
+        require("fs").accessSync(chromePath);
+        return chromePath;
+      } catch (e) {
+        continue;
+      }
+    }
+  } else {
+    // Linux paths (สำหรับ Render)
+    const linuxPaths = [
+      "/usr/bin/chromium-browser",
+      "/usr/bin/chromium",
+      "/usr/bin/google-chrome",
+      "/usr/bin/google-chrome-stable",
+    ];
+
+    for (const chromePath of linuxPaths) {
+      try {
+        require("fs").accessSync(chromePath);
+        return chromePath;
+      } catch (e) {
+        continue;
+      }
+    }
+  }
+
+  return null;
+};
 
 // Serve index.html ที่ root
 app.get("/", (req, res) => {
@@ -102,7 +148,6 @@ app.get("/api/scrape-booking", async (req, res) => {
       ],
       headless: true,
     });
-    
 
     const page = await browser.newPage();
     await page.goto(targetURL, { waitUntil: "networkidle2" });
@@ -388,14 +433,12 @@ app.get("/api/clone-counters", async (req, res) => {
 
   try {
     const browser = await puppeteer.launch({
-      executablePath:
-        process.env.PUPPETEER_EXECUTABLE_PATH || "/usr/bin/chromium-browser",
+      executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || getChromePath(),
       args: [
         "--no-sandbox",
         "--disable-setuid-sandbox",
         "--disable-dev-shm-usage",
         "--disable-gpu",
-        "--no-first-run",
       ],
       headless: true,
     });
