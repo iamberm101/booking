@@ -1,14 +1,17 @@
 {
   "name": "mybooking",
   "version": "1.0.0",
+   "engines": {
+    "node": "18.x"
+  },
   "main": "proxy-server.js",
   "directories": {
     "lib": "lib"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-     "dev": "nodemon proxy-server.js",
-     "start": "node proxy-server.js"
+    "dev": "nodemon proxy-server.js",
+    "start": "node proxy-server.js"
   },
   "repository": {
     "type": "git",
@@ -27,7 +30,7 @@
     "cors": "^2.8.5",
     "express": "^5.1.0",
     "node-fetch": "^2.7.0",
-    "puppeteer": "^21.3.8"  
+    "puppeteer-core": "^24.9.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"
