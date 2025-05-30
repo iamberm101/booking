@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
 // ===================== 🔐 Access Token =====================
 app.post("/api/access-token", async (req, res) => {
   try {
-    console.log("[access-token] payload:", req.body);
+    //  console.log("[access-token] payload:", req.body);
 
     const response = await fetch(
       "https://accounts.busx.com/api/jwt/access_token.php",
@@ -98,9 +98,12 @@ app.get("/api/scrape-booking", async (req, res) => {
         "--disable-setuid-sandbox",
         "--disable-dev-shm-usage",
         "--disable-gpu",
+        "--no-first-run",
       ],
       headless: true,
     });
+    
+
     const page = await browser.newPage();
     await page.goto(targetURL, { waitUntil: "networkidle2" });
 
@@ -130,10 +133,17 @@ app.get("/api/clone-thairoute", async (req, res) => {
 
   try {
     const browser = await puppeteer.launch({
-      headless: "new",
-      args: ["--no-sandbox", "--disable-setuid-sandbox"],
+      executablePath:
+        process.env.PUPPETEER_EXECUTABLE_PATH || "/usr/bin/chromium-browser",
+      args: [
+        "--no-sandbox",
+        "--disable-setuid-sandbox",
+        "--disable-dev-shm-usage",
+        "--disable-gpu",
+        "--no-first-run",
+      ],
+      headless: true,
     });
-
     const page = await browser.newPage();
     await page.goto(url, { waitUntil: "networkidle2" });
 
@@ -378,8 +388,16 @@ app.get("/api/clone-counters", async (req, res) => {
 
   try {
     const browser = await puppeteer.launch({
-      headless: "new",
-      args: ["--no-sandbox", "--disable-setuid-sandbox"],
+      executablePath:
+        process.env.PUPPETEER_EXECUTABLE_PATH || "/usr/bin/chromium-browser",
+      args: [
+        "--no-sandbox",
+        "--disable-setuid-sandbox",
+        "--disable-dev-shm-usage",
+        "--disable-gpu",
+        "--no-first-run",
+      ],
+      headless: true,
     });
 
     const page = await browser.newPage();
@@ -610,8 +628,16 @@ app.get("/api/clone-booking-status", async (req, res) => {
 
   try {
     const browser = await puppeteer.launch({
-      headless: "new",
-      args: ["--no-sandbox", "--disable-setuid-sandbox"],
+      executablePath:
+        process.env.PUPPETEER_EXECUTABLE_PATH || "/usr/bin/chromium-browser",
+      args: [
+        "--no-sandbox",
+        "--disable-setuid-sandbox",
+        "--disable-dev-shm-usage",
+        "--disable-gpu",
+        "--no-first-run",
+      ],
+      headless: true,
     });
 
     const page = await browser.newPage();
@@ -750,8 +776,16 @@ app.get("/api/clone-news", async (req, res) => {
 
   try {
     const browser = await puppeteer.launch({
-      headless: "new",
-      args: ["--no-sandbox", "--disable-setuid-sandbox"],
+      executablePath:
+        process.env.PUPPETEER_EXECUTABLE_PATH || "/usr/bin/chromium-browser",
+      args: [
+        "--no-sandbox",
+        "--disable-setuid-sandbox",
+        "--disable-dev-shm-usage",
+        "--disable-gpu",
+        "--no-first-run",
+      ],
+      headless: true,
     });
 
     const page = await browser.newPage();
@@ -1062,8 +1096,16 @@ app.get("/api/clone-contact", async (req, res) => {
 
   try {
     const browser = await puppeteer.launch({
-      headless: "new",
-      args: ["--no-sandbox", "--disable-setuid-sandbox"],
+      executablePath:
+        process.env.PUPPETEER_EXECUTABLE_PATH || "/usr/bin/chromium-browser",
+      args: [
+        "--no-sandbox",
+        "--disable-setuid-sandbox",
+        "--disable-dev-shm-usage",
+        "--disable-gpu",
+        "--no-first-run",
+      ],
+      headless: true,
     });
 
     const page = await browser.newPage();
