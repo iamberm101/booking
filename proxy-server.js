@@ -6,6 +6,7 @@ const cors = require("cors");
 const path = require("path");
 const puppeteer = require("puppeteer-core"); // ⬅️ เพิ่มด้านบนของไฟล์
 const os = require("os");
+const { execSync } = require("child_process");
 
 const app = express();
 
@@ -13,6 +14,33 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.static(__dirname));
+
+// Debug: หา Chrome ที่มีใน system
+const findChromeOnLinux = () => {
+  try {
+    // ลองหา Chrome ด้วย which command
+    const paths = [
+      "chromium",
+      "chromium-browser",
+      "google-chrome",
+      "google-chrome-stable",
+    ];
+
+    for (const cmd of paths) {
+      try {
+        const result = execSync(`which ${cmd}`, { encoding: "utf8" }).trim();
+        console.log(`Found Chrome at: ${result}`);
+        return result;
+      } catch (e) {
+        console.log(`${cmd} not found`);
+      }
+    }
+  } catch (error) {
+    console.log("Error finding Chrome:", error.message);
+  }
+
+  return null;
+};
 
 // Function หา Chrome path ตาม OS
 const getChromePath = () => {
@@ -433,12 +461,19 @@ app.get("/api/clone-counters", async (req, res) => {
 
   try {
     const browser = await puppeteer.launch({
-      executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || getChromePath(),
+      executablePath:
+        process.env.PUPPETEER_EXECUTABLE_PATH ||
+        findChromeOnLinux() ||
+        "/usr/bin/chromium",
       args: [
         "--no-sandbox",
         "--disable-setuid-sandbox",
         "--disable-dev-shm-usage",
         "--disable-gpu",
+        "--disable-extensions",
+        "--disable-background-timer-throttling",
+        "--disable-backgrounding-occluded-windows",
+        "--disable-renderer-backgrounding",
       ],
       headless: true,
     });
