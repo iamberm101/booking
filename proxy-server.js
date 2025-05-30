@@ -4,7 +4,7 @@ const express = require("express");
 const fetch = require("node-fetch"); // v2 เท่านั้นสำหรับ CommonJS
 const cors = require("cors");
 const path = require("path");
-const puppeteer = require("puppeteer"); // ⬅️ เพิ่มด้านบนของไฟล์
+const puppeteer = require("puppeteer-core"); // ⬅️ เพิ่มด้านบนของไฟล์
 
 const app = express();
 
